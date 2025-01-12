@@ -1,0 +1,110 @@
+.cart-popup {
+    position: absolute;
+    z-index: 1;
+    width: 400px;
+    height: 100vh;
+    display: grid;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    right: 0;
+}
+.cart-popup-container {
+    height: 100vh;
+    place-self: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.cart-popup-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    margin-bottom: -40px;
+}
+
+.cart-popup-title img {
+    cursor: pointer;
+    width: 20px;
+    z-index: 10;
+}
+
+.cart-popup-items {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.cart-popup-item-container{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-popup-items img{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+
+}
+
+.cart-popup-items-counter {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto;
+}
+
+.cart-popup-items-counter img{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 20px;
+    width: 20px;
+
+}
+
+
+
+.cart-popup-bill-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-popup-cancellation-policy {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+}
+
+.cart-popup-container button {
+    margin-top: auto;
+    margin-bottom: 20px;
+    background-color: rgb(12, 131, 31);
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: inter;
+    color: #ffffff;
+    font-weight: 600;
+}

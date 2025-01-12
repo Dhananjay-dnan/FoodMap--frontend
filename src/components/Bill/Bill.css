@@ -1,0 +1,89 @@
+.cart-popup-bill {
+    margin: 20px 0;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+/* Bill heading */
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Bill table container */
+.cart-popup-bill-table {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* Bill labels container */
+.cart-popup-bill-label {
+    flex: 1;
+}
+
+/* Bill values container */
+.cart-popup-bill-values {
+    text-align: right;
+    flex: 1;
+}
+
+/* Common styles for bill items */
+.cart-popup-bill-label p,
+.cart-popup-bill-values p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Style for the total amount row */
+.cart-popup-bill-label p:last-child,
+.cart-popup-bill-values p:last-child {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Hover effect for bill rows */
+.cart-popup-bill-table:hover {
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 480px) {
+    .cart-popup-bill-table {
+        padding: 5px;
+    }
+
+    .cart-popup-bill-label p,
+    .cart-popup-bill-values p {
+        font-size: 13px;
+        margin: 6px 0;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Optional: Animation for bill amounts */
+.cart-popup-bill-values p {
+    transition: color 0.3s ease;
+}
+
+.cart-popup-bill-values p:hover {
+    color: #007bff;
+}
+
+/* Optional: Style for currency symbol */
+.cart-popup-bill-values p::before {
+    content: "₹";
+    margin-right: 2px;
+    font-family: Arial, sans-serif;
+}

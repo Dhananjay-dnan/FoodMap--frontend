@@ -1,0 +1,252 @@
+.place-order-container {
+    display: flex;
+    flex-direction: row;
+    row-gap: 50px;
+    justify-content: space-between;
+}
+
+.place-order-left-address {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 240px)); /* Fixed width cards */ /* Center the cards */
+    gap: 10px;
+    padding: 10px;
+    width: 600px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Title container */
+.title {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+/* Address Card styling */
+.address {
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px; /* Increased height for card-like appearance */
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2/3
+}
+
+.address:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+/* Address content styling */
+.address div {
+    margin-bottom: 12px;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+}
+
+/* First line of address - make it stand out */
+.address div:first-of-type {
+    font-weight: 600;
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+/* "Deliver Here" button */
+.address button {
+    width: 100%;
+    height: 48px;
+    background-color: #0C831F;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.address button:hover {
+    background-color: #0a7019;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(12, 131, 31, 0.2);
+}
+
+/* Selected address styling */
+.address.selected {
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px; /* Increased height for card-like appearance */
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2/3
+}
+
+.address.selected::before {
+    content: '✓';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #0C831F;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+/* "Add New" button */
+.place-order-left-address > button:last-child {
+    grid-column: 1 / -1;
+    height: 56px; /* Slightly taller */
+    background-color: white;
+    border: 2px dashed #0C831F;
+    border-radius: 16px;
+    color: #0C831F;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.place-order-left-address > button:last-child:hover {
+    background-color: #f8fff9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(12, 131, 31, 0.1);
+}
+
+/* Change Address Button */
+.change-address-btn {
+    background: none;
+    border: 1px solid #0C831F;
+    color: #0C831F;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.change-address-btn:hover {
+    background-color: #f0f9f1;
+}
+
+/* Loading states */
+.address.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    animation: pulse 1.5s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .place-order-left-address {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .address {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .place-order-left-address {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        padding: 15px;
+        gap: 16px;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .address {
+        min-height: 220px;
+    }
+
+    .address div:first-of-type {
+        font-size: 16px;
+    }
+}
+
+
+.place-order-left-payment{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    position: relative;
+    gap: 15px;
+}
+
+.payment-selection {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
