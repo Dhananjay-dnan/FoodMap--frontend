@@ -1,0 +1,21 @@
+.restaurant-display {
+    width: 100%; /* Use percentage for responsive width */
+    max-width: 2000px; /* Set a max width for larger screens */
+    margin: 40px auto; /* Center the component */
+    padding: 0 20px;
+}
+.restaurant-display h2{
+    font-size: 2rem; /* Use rem for scalable font size */
+    font-weight: 600;
+    margin-bottom: 20px; /* Add margin for spacing */
+    text-align: center;
+}
+
+.restaurant-display-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items */
+    gap: 30px;
+    margin-bottom: 50px;
+}

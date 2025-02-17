@@ -1,13 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../../assets/assets'
 import './NavBar.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
+import { useAuth } from '../../context/AuthContext';
+import axiosInstance from '../../api/axiosInstance';
 
 const NavBar = ({setShowLogin, setShowCart}) => {
   const[menu,setMenu] = useState('Menu');
+  const { isLoggedIn,setIsLoggedIn, logout} = useAuth();
   const {cartItems,isCartItemsEmpty} = useContext(StoreContext);
   const [isEmpty, setIsEmpty] = useState(true);
+  const navigate = useNavigate();
+  const handleLogout = async (e) => {
+    console.log("Logout Clicked")
+    const response = await axiosInstance.post('/v1/auth/logout', {
+        withCredentials: true,
+    });
+    if(response.data){
+    setIsLoggedIn(false);
+    console.log("logged in is set to false")
+    logout();
+    navigate('/')
+  }
+};
+
   useEffect(() => {
     setIsEmpty(isCartItemsEmpty);
 }, [cartItems]);
@@ -26,7 +43,7 @@ const NavBar = ({setShowLogin, setShowCart}) => {
           {!isEmpty?<img onClick={()=>setShowCart(true)} src ={assets.basket_icon} alt=''></img>:<></>}
           {/* <div className='dot'></div> */}
         </div>
-        <button onClick={()=>setShowLogin(true)}>Sign In</button>
+        {isLoggedIn?<button onClick={()=>handleLogout()}>Logout</button>:<button onClick={()=>setShowLogin(true)}>Sign In</button>}
         </div>
     </div>
   )

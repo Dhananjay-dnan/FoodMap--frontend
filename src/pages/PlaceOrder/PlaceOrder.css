@@ -7,7 +7,7 @@
 
 .place-order-left-address {
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 240px)); /* Fixed width cards */ /* Center the cards */
+    grid-template-columns: repeat(5, minmax(200px, 240px)); /* Fixed width cards */ /* Center the cards */
     gap: 10px;
     padding: 10px;
     width: 600px;
@@ -44,7 +44,6 @@
     min-height: 100px; /* Increased height for card-like appearance */
     position: relative;
     overflow: hidden;
-    aspect-ratio: 2/3
 }
 
 .address:hover {
@@ -100,18 +99,8 @@
 /* Selected address styling */
 .address.selected {
     background-color: white;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100px; /* Increased height for card-like appearance */
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 2/3
+    width: 400px;
+    
 }
 
 .address.selected::before {

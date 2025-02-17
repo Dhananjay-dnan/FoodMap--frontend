@@ -1,12 +1,15 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext';
 import './CartPopup.css'
 import { Link } from 'react-router-dom';
 import Bill from '../Bill/Bill';
+import { useAuth } from '../../context/AuthContext';
 
-const CartPopup = ({ setShowCart }) => {
+const CartPopup = ({ setShowCart, setShowLogin }) => {
     const { cartItems, foodList, addToCart, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+    const [loginStatus,setLoginStatus] = useState(false);
+    const { isLoggedIn} = useAuth();
     useEffect(() => {
         // Lock the background scroll when the popup is open
         document.body.style.overflow = 'hidden';
@@ -73,10 +76,10 @@ const CartPopup = ({ setShowCart }) => {
                     <h2>Cancellation Policy</h2>
                     <p>Orders cannot be cancelled once packed for delivery. In case of unexpected delays, a refund will be provided, if applicable.</p>
                 </div>
-                <Link to='/order'><button onClick={() => setShowCart(false)}>Place Order
-
-                </button></Link>
-
+                {isLoggedIn?<Link to='/order'><button onClick={() => {setShowCart(false);}}>Place Order</button>
+                </Link>
+                : <button onClick={()=>setShowLogin(true)} > Login to Proceed</button>
+}
             </div>
 
         </div>
